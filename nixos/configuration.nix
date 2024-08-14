@@ -1,7 +1,5 @@
 { inputs, lib, config, pkgs, ... }: {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ];
 
   nixpkgs = {
     # You can add overlays here
@@ -48,7 +46,6 @@
    # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = nixos;
-  networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";

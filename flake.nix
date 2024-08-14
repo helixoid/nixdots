@@ -26,6 +26,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.helix = import ./home-manager/home.nix;
+	}
 	  ];
      	};
     };

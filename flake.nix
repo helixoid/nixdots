@@ -10,19 +10,12 @@
     # home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
-  let
-    system = "x86_64-linux";
-    hostname = "nixos";
-    username = "helixoid";
-  in {
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:{
     nixosConfigurations = {
-        "${hostname}" = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
+	 system = "x86_64-linux";
           specialArgs = {
-	    inherit system;
             inherit inputs;
-            inherit username;
-            inherit hostname;
           };
         modules = [
           ./nixos/configuration.nix

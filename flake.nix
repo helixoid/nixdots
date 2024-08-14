@@ -13,7 +13,7 @@
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
   let
     system = "x86_64-linux";
-    hostname = "Dell-Vostro-15";
+    hostname = "nixos";
     username = "helixoid";
   in {
     nixosConfigurations = {

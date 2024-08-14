@@ -6,8 +6,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    # home-manager.url = "github:nix-community/home-manager";
-    # home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, home-manager, ... } @ inputs:
@@ -20,16 +20,13 @@
           };
         modules = [
           ./nixos/configuration.nix
-          # home-manager.nixosModules.home-manager
-          # {
-          #    home-manager.extraSpecialArgs = {
-          #       inherit username;
-          #       inherit inputs;
-          #       inherit hostname;
-          #     };
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-          #   home-manager.users.$(username) = import ./home-manager/home.nix;
+	homeConfigurations = {
+      # FIXME replace with your username@hostname
+      "helix@nixos" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        # > Our main home-manager configuration file <
+        modules = [./home-manager/home.nix];
         ];
           };
         };

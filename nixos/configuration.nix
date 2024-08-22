@@ -81,6 +81,9 @@ programs.fish.enable = true;
 git
 neovim
 firefox
+lua-language-server
+nil
+stylua
   ];
  virtualisation.virtualbox.guest.enable = true;
 

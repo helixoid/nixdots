@@ -1,10 +1,24 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      timeout = 0;
+      limine = {
+        enable = true;
+        secureBoot = {
+          enable = true;
+          autoGenerateKeys = true;
+          autoEnrollKeys.enable = true;
+        };
+        style = {
+          wallpapers = [
+            "/home/${username}/nixdots/Wallpapers/Japan.jpg"
+          ];
+        };
+      };
     };
     plymouth = {
       enable = true;

@@ -14,8 +14,6 @@
           autoEnrollKeys.enable = true;
         };
         style = {
-          graphicalTerminal.font.scale = "2x2";
-          wallpaperStyle = "centered";
           wallpapers = [
             "/home/${username}/nixdots/Wallpapers/Japan.jpg"
             "/home/${username}/nixdots/Wallpapers/Joyboy.png"

@@ -14,10 +14,22 @@
           autoEnrollKeys.enable = true;
         };
         style = {
+          graphicalTerminal.font.scale = "2x2";
+          wallpaperStyle = "centered";
           wallpapers = [
             "/home/${username}/nixdots/Wallpapers/Japan.jpg"
+            "/home/${username}/nixdots/Wallpapers/Joyboy.png"
+            "/home/${username}/nixdots/Wallpapers/KCD-2.jpg"
+            "/home/${username}/nixdots/Wallpapers/Mandalorian.jpg"
+            "/home/${username}/nixdots/Wallpapers/Specs_Woman.jpg"
+            "/home/${username}/nixdots/Wallpapers/Witcher-3.jpg"
           ];
         };
+        extraEntries = ''
+          /Windows 11
+              protocol: efi_chainload
+              image_path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+        '';
       };
     };
     plymouth = {
